@@ -5,292 +5,609 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdou Salam Koanda - Expert Solutions Digitales Burkina</title>
     <meta name="description" content="Développeur d'applications, sites web et e-commerce sur mesure à Ouagadougou. Solutions avec paiement Mobile Money intégré.">
+    <!-- Préchargement des polices pour améliorer les performances -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* RESET ET BASE */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Arial', sans-serif; 
-            line-height: 1.6; 
-            color: #333;
-            background: #f8f9fa;
+        /* RESET ET BASE AMÉLIORÉ */
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #ff6b6b;
+            --highlight-color: #ffd700;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
         }
         
-        /* HERO SECTION */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body { 
+            font-family: 'Inter', 'Arial', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-color);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+        
+        /* TYPOGRAPHIE AMÉLIORÉE */
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        /* HERO SECTION AMÉLIORÉE */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
         }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,100 L0,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
         }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
         .highlight {
-            color: #ffd700;
-            font-weight: bold;
+            color: var(--highlight-color);
+            font-weight: 700;
         }
+        
         .cta-button {
             display: inline-block;
-            background: #ff6b6b;
-            color: white;
+            background: var(--accent-color);
+            color: var(--white);
             padding: 15px 30px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 50px;
+            font-weight: 600;
             margin-top: 20px;
-            transition: transform 0.3s;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            border: none;
+            cursor: pointer;
         }
         
-        /* SERVICES */
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* SERVICES AMÉLIORÉS */
         .services {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
-        .services h2 {
+        
+        .section-title {
             text-align: center;
-            margin-bottom: 40px;
-            font-size: 2rem;
+            margin-bottom: 60px;
+            position: relative;
         }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
         .service-card {
-            background: white;
+            background: var(--white);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-card:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+        
         .service-card h3 {
-            color: #667eea;
+            color: var(--primary-color);
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+        
+        .service-card .price {
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+        
         .service-card ul {
             list-style: none;
         }
+        
         .service-card li {
-            padding: 5px 0;
+            padding: 8px 0;
             border-bottom: 1px solid #eee;
-        }
-        .service-card li:before {
-            content: "✅ ";
-            margin-right: 10px;
+            display: flex;
+            align-items: flex-start;
         }
         
-        /* POURQUOI MOI */
-        .why-me {
-            background: #667eea;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
+        .service-card li:before {
+            content: "✅";
+            margin-right: 10px;
+            flex-shrink: 0;
         }
+        
+        /* POURQUOI MOI AMÉLIORÉ */
+        .why-me {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .why-me::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,0 L1000,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .why-me .section-title {
+            color: var(--white);
+        }
+        
+        .why-me .section-title::after {
+            background: var(--highlight-color);
+        }
+        
         .advantages {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 40px auto 0;
-        }
-        .advantage {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 10px;
+            position: relative;
+            z-index: 1;
         }
         
-        /* PORTFOLIO */
+        .advantage {
+            background: rgba(255,255,255,0.1);
+            padding: 30px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        
+        .advantage:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        /* PORTFOLIO AMÉLIORÉ */
         .portfolio {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
-        }
-        .project {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 80px 20px;
         }
         
-        /* CONTACT */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .project h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .project .result {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        /* CONTACT AMÉLIORÉ */
         .contact {
             background: #333;
-            color: white;
-            padding: 60px 20px;
+            color: var(--white);
+            padding: 80px 20px;
             text-align: center;
         }
+        
         .contact-info {
             max-width: 600px;
             margin: 0 auto;
         }
         
-        /* RESPONSIVE */
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+        }
+        
+        .email-btn {
+            background: #ea4335;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* RESPONSIVE AMÉLIORÉ */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .advantages { grid-template-columns: 1fr; }
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .services, .why-me, .portfolio, .contact {
+                padding: 60px 20px;
+            }
+            
+            .advantages, .services-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-buttons .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        /* ANIMATIONS AMÉLIORÉES */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* LOADING OPTIMISÉ */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION AMÉLIORÉE -->
     <section class="hero">
-        <h1>Vos clients commandent <span class="highlight">même quand vous dormez</span></h1>
-        <p>Je crée vos applications, sites web et boutiques en ligne avec paiement Mobile Money intégré</p>
-        <a href="#contact" class="cta-button">🎯 Obtenir mon audit digital gratuit</a>
+        <div class="hero-content">
+            <h1>Vos clients commandent <span class="highlight">même quand vous dormez</span></h1>
+            <p>Je crée vos applications, sites web et boutiques en ligne avec paiement Mobile Money intégré</p>
+            <a href="#contact" class="cta-button">🎯 Obtenir mon audit digital gratuit</a>
+        </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- SERVICES AMÉLIORÉS -->
     <section class="services">
-        <h2>Mes Services <span class="highlight">Sur Mesure</span></h2>
+        <h2 class="section-title">Mes Services <span class="highlight">Sur Mesure</span></h2>
         
-        <div class="service-card">
-            <h3>📱 Applications Mobiles</h3>
-            <p><strong>200.000 - 500.000 FCFA</strong></p>
-            <ul>
-                <li>Applications Android et iOS</li>
-                <li>Gestion de stock et inventaire</li>
-                <li>Systèmes de réservation</li>
-                <li>Applications métiers sur mesure</li>
-                <li>Interface adaptée mobile</li>
-                <li>Base de données sécurisée</li>
-                <li>Formation utilisateurs</li>
-                <li>Maintenance incluse 3 mois</li>
-            </ul>
-        </div>
-        
-        <div class="service-card">
-            <h3>🛒 Sites E-commerce</h3>
-            <p><strong>150.000 - 300.000 FCFA</strong></p>
-            <ul>
-                <li>Paiement Orange Money/Moov Money intégré</li>
-                <li>Catalogue produits illimité</li>
-                <li>Gestion de stock automatique</li>
-                <li>Commandes via WhatsApp</li>
-                <li>Tableau de bord des ventes</li>
-                <li>Optimisation mobile</li>
-                <li>Hébergement 1 an inclus</li>
-                <li>Support technique 3 mois</li>
-            </ul>
-        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <h3>📱 Applications Mobiles</h3>
+                <p class="price">200.000 - 500.000 FCFA</p>
+                <ul>
+                    <li>Applications Android et iOS</li>
+                    <li>Gestion de stock et inventaire</li>
+                    <li>Systèmes de réservation</li>
+                    <li>Applications métiers sur mesure</li>
+                    <li>Interface adaptée mobile</li>
+                    <li>Base de données sécurisée</li>
+                    <li>Formation utilisateurs</li>
+                    <li>Maintenance incluse 3 mois</li>
+                </ul>
+            </div>
+            
+            <div class="service-card fade-in">
+                <h3>🛒 Sites E-commerce</h3>
+                <p class="price">150.000 - 300.000 FCFA</p>
+                <ul>
+                    <li>Paiement Orange Money/Moov Money intégré</li>
+                    <li>Catalogue produits illimité</li>
+                    <li>Gestion de stock automatique</li>
+                    <li>Commandes via WhatsApp</li>
+                    <li>Tableau de bord des ventes</li>
+                    <li>Optimisation mobile</li>
+                    <li>Hébergement 1 an inclus</li>
+                    <li>Support technique 3 mois</li>
+                </ul>
+            </div>
 
-        <div class="service-card">
-            <h3>🌐 Sites Web Professionnels</h3>
-            <p><strong>75.000 - 150.000 FCFA</strong></p>
-            <ul>
-                <li>Design moderne et responsive</li>
-                <li>Optimisé pour Google</li>
-                <li>Formulaire de contact avancé</li>
-                <li>Galerie photos/vidéos</li>
-                <li>Intégration réseaux sociaux</li>
-                <li>Espace administrateur</li>
-                <li>Hébergement 1 an inclus</li>
-                <li>Formation gestion de contenu</li>
-            </ul>
+            <div class="service-card fade-in">
+                <h3>🌐 Sites Web Professionnels</h3>
+                <p class="price">75.000 - 150.000 FCFA</p>
+                <ul>
+                    <li>Design moderne et responsive</li>
+                    <li>Optimisé pour Google</li>
+                    <li>Formulaire de contact avancé</li>
+                    <li>Galerie photos/vidéos</li>
+                    <li>Intégration réseaux sociaux</li>
+                    <li>Espace administrateur</li>
+                    <li>Hébergement 1 an inclus</li>
+                    <li>Formation gestion de contenu</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- POURQUOI MOI -->
+    <!-- POURQUOI MOI AMÉLIORÉ -->
     <section class="why-me">
-        <h2>Pourquoi Me Choisir ?</h2>
+        <h2 class="section-title">Pourquoi Me Choisir ?</h2>
         <div class="advantages">
-            <div class="advantage">
+            <div class="advantage fade-in">
                 <h3>🇧🇫 Local et Accessible</h3>
                 <p>Basé à Ouagadougou/Cissin, je comprends les réalités des entreprises burkinabè</p>
             </div>
-            <div class="advantage">
+            <div class="advantage fade-in">
                 <h3>📱 Mobile Money Intégré</h3>
                 <p>Solutions de paiement adaptées : Orange Money et Moov Money</p>
             </div>
-            <div class="advantage">
+            <div class="advantage fade-in">
                 <h3>🚀 Livraison Rapide</h3>
                 <p>Votre projet livré en 7 à 15 jours selon la complexité</p>
             </div>
-            <div class="advantage">
+            <div class="advantage fade-in">
                 <h3>💬 Support Réactif</h3>
                 <p>Disponible sur WhatsApp pour un support rapide et personnalisé</p>
             </div>
         </div>
     </section>
 
-    <!-- PORTFOLIO -->
+    <!-- PORTFOLIO AMÉLIORÉ -->
     <section class="portfolio">
-        <h2>Mes Réalisations Récents</h2>
+        <h2 class="section-title">Mes Réalisations Récents</h2>
         
-        <div class="project">
-            <h3>📱 Application de Gestion - Epicerie "Le Bon Marché"</h3>
-            <p><strong>Résultat :</strong> Réduction du temps de gestion de 70%</p>
-            <p><strong>Fonctionnalités :</strong> Gestion de stock, facturation, statistiques de vente</p>
-        </div>
-        
-        <div class="project">
-            <h3>🛍️ Site E-commerce - Boutique "Mode Africaine"</h3>
-            <p><strong>Résultat :</strong> Ventes en ligne +45% avec Mobile Money</p>
-            <p><strong>Fonctionnalités :</strong> Catalogue produits, paiement mobile, livraison</p>
-        </div>
-        
-        <div class="project">
-            <h3>🌐 Site Vitrine - Restaurant "Saveurs du Sahel"</h3>
-            <p><strong>Résultat :</strong> Réservations +60%, meilleure visibilité</p>
-            <p><strong>Fonctionnalités :</strong> Menu en ligne, réservation, galerie photos</p>
+        <div class="projects-grid">
+            <div class="project fade-in">
+                <h3>📱 Application de Gestion - Epicerie "Le Bon Marché"</h3>
+                <p class="result">Résultat : Réduction du temps de gestion de 70%</p>
+                <p><strong>Fonctionnalités :</strong> Gestion de stock, facturation, statistiques de vente</p>
+            </div>
+            
+            <div class="project fade-in">
+                <h3>🛍 Site E-commerce - Boutique "Mode Africaine"</h3>
+                <p class="result">Résultat : Ventes en ligne +45% avec Mobile Money</p>
+                <p><strong>Fonctionnalités :</strong> Catalogue produits, paiement mobile, livraison</p>
+            </div>
+            
+            <div class="project fade-in">
+                <h3>🌐 Site Vitrine - Restaurant "Saveurs du Sahel"</h3>
+                <p class="result">Résultat : Réservations +60%, meilleure visibilité</p>
+                <p><strong>Fonctionnalités :</strong> Menu en ligne, réservation, galerie photos</p>
+            </div>
         </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT AMÉLIORÉ -->
     <section id="contact" class="contact">
-        <h2>📞 Prêt à Digitaliser Votre Business ?</h2>
+        <h2 class="section-title">📞 Prêt à Digitaliser Votre Business ?</h2>
         <div class="contact-info">
-            <p><strong>📱 WhatsApp/Appel :</strong> +226 65 41 48 99</p>
-            <p><strong>📧 Email :</strong> abdousalamkoanda@gmail.com</p>
-            <p><strong>📍 Localisation :</strong> Ouagadougou, Cissin (près de la station Pétrofa)</p>
-            <p><strong>🕒 Horaires :</strong> Lundi - Samedi, 8h - 18h</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <strong>📱 WhatsApp/Appel :</strong> +226 65 41 48 99
+                </div>
+                <div class="contact-item">
+                    <strong>📧 Email :</strong> abdousalamkoanda@gmail.com
+                </div>
+                <div class="contact-item">
+                    <strong>📍 Localisation :</strong> Ouagadougou, Cissin (près de la station Pétrofa)
+                </div>
+                <div class="contact-item">
+                    <strong>🕒 Horaires :</strong> Lundi - Samedi, 8h - 18h
+                </div>
+            </div>
             
-            <div style="margin-top: 30px;">
-                <a href="https://wa.me/22665414899" class="cta-button" style="background: #25D366;">
+            <div class="contact-buttons">
+                <a href="https://wa.me/22665414899" class="cta-button whatsapp-btn">
                     💬 Discutons sur WhatsApp
                 </a>
-            </div>
 
-            <div style="margin-top: 15px;">
-                <a href="mailto:abdousalamkoanda@gmail.com" class="cta-button" style="background: #ea4335;">
+                <a href="mailto:abdousalamkoanda@gmail.com" class="cta-button email-btn">
                     📧 Envoyer un Email
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER AJOUTÉ -->
+    <footer class="footer">
+        <p>&copy; 2023 Abdou Salam Koanda - Expert Solutions Digitales Burkina. Tous droits réservés.</p>
+    </footer>
+
     <script>
-        // Smooth scroll pour les liens d'ancrage
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Animation au scroll améliorée
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+        
+        // Gestion du chargement des boutons CTA
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (!this.href || this.getAttribute('href') === '#contact') return;
+                
+                // Ajouter un indicateur de chargement
+                const originalText = this.innerHTML;
+                this.innerHTML = '<span class="loading"></span> Chargement...';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
             });
         });
         
-        // Animation simple au scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
-                }
-            });
-        }, observerOptions);
-        
-        // Appliquer aux sections
-        document.querySelectorAll('.service-card, .advantage, .project').forEach(el => {
-            el.style.opacity = "0";
-            el.style.transform = "translateY(20px)";
-            el.style.transition = "all 0.6s ease-out";
-            observer.observe(el);
+        // Optimisation des performances - chargement différé des images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+            
+            if ('IntersectionObserver' in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove('lazy');
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
         });
     </script>
 </body>
